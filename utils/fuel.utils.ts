@@ -22,7 +22,6 @@ export class FuelUtils {
 
         const getCurrentFuelPrice = async () => {
             let fuelText = await this.page.getByText('Total price$').locator('b > span').innerText();
-            console.log("fuel text is: " + fuelText);
             fuelText = fuelText.replaceAll(',', '');
             
             return parseInt(fuelText);
@@ -30,16 +29,13 @@ export class FuelUtils {
 
         const getCurrentHolding = async () => {
             let holdingText = await this.page.locator('#holding').innerText();
-            console.log("holding text: " + holdingText);
             holdingText = holdingText.replaceAll(',', '');
 
             return parseInt(holdingText);
         }
 
         const getEmptyFuel = async () => {
-            let emptyText = await this.page.locator('[id="remCapacity"]').innerText();
-            console.log("empty fuel text is: " + emptyText);
-            emptyText = emptyText.replaceAll(',', '');
+            const emptyText = (await this.page.locator('#remCapacity').innerText()).replaceAll(',', '')
 
             return parseInt(emptyText);
         }
