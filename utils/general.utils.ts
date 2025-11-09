@@ -19,6 +19,7 @@ export class GeneralUtils {
 
     public async login(page: Page) {
         console.log('Logging in...')
+        console.log(`Using username: ${this.username}`);
 
         await page.goto('https://www.airlinemanager.com/');
 
