@@ -37,7 +37,7 @@ export class FuelUtils {
         }
 
         const getEmptyFuel = async () => {
-            let emptyText = await this.page.$('[id="remCapacity"]').innerText();
+            let emptyText = await this.page.locator('[id="remCapacity"]').innerText();
             console.log("empty fuel text is: " + emptyText);
             emptyText = emptyText.replaceAll(',', '');
 
