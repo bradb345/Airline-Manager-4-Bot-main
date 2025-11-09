@@ -33,6 +33,8 @@ export class GeneralUtils {
         await page.locator('#lPass').click();
         await page.locator('#lPass').fill(this.password);
         await page.getByRole('button', { name: 'Log In', exact: true }).click();
+        await GeneralUtils.sleep(4000);
+        console.log('Waiting for login to complete...');
 
         // a span containing "Points" should be visible 
         await page.waitForSelector('span:has-text("Points")', { timeout: 60000 });
