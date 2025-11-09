@@ -23,7 +23,7 @@ test('All Operations', async ({ page }) => {
   await GeneralUtils.sleep(1000);
 
   // Fuel Operations //
-  page.getByText('Fuel').click();
+  await page.locator('#mapMaint > img').first().click();
   await fuelUtils.buyFuel();
 
   await page.getByRole('button', { name: ' Co2' }).click();
