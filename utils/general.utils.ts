@@ -32,6 +32,9 @@ export class GeneralUtils {
         await page.locator('#lPass').fill(this.password);
         await page.getByRole('button', { name: 'Log In', exact: true }).click();
 
+        // a span containing "Points" should be visible 
+        await page.waitForSelector('span:has-text("Points")', { timeout: 60000 });
+
         console.log('Logged in successfully!');
     }
 }
