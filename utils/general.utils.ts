@@ -22,6 +22,8 @@ export class GeneralUtils {
         console.log(`Using username: ${this.username}`);
 
         await page.goto('https://www.airlinemanager.com/');
+        // wait for the page to load by sleeping for 4 seconds
+        await GeneralUtils.sleep(4000);
 
         await page.getByRole('button', { name: 'PLAY FREE NOW' }).click();
         await page.getByRole('button', { name: 'Log in' }).click();
