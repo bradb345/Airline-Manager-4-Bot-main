@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.env
+playwright-report
+test-results
+.DS_Store
+README.md
+LICENSE

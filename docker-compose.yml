@@ -1,0 +1,20 @@
+
+
+services:
+  airline-bot:
+    build: .
+    container_name: airline-manager-bot
+    restart: unless-stopped  # Automatically restart if container stops
+    environment:
+      - NODE_ENV=production
+      # Add your environment variables here or use env_file
+      # - USERNAME=${USERNAME}
+      # - PASSWORD=${PASSWORD}
+    env_file:
+      - .env  # Load environment variables from .env file
+    volumes:
+      # Mount test results and reports
+      - ./playwright-report:/app/playwright-report
+      - ./test-results:/app/test-results
+    # Run in headless mode by default
+    # If you need to see the browser, you'll need to set up X11 forwarding
