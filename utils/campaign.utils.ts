@@ -43,7 +43,7 @@ export class CampaignUtils {
             console.log("Increased Airline Reputation Successfully!");
         }
 
-        const isCargoReputationExists = await this.page.getByRole('cell', { name: ' Cargo reputation' }).isVisible();
+        const isCargoReputationExists = await this.page.getByRole('cell', { name: /Cargo reputation/i }).isVisible();
         if (!isCargoReputationExists) {
             await this.page.getByRole('button', { name: ' New campaign' }).click();
             await this.page.getByRole('cell', { name: 'Increase cargo reputation' }).click();
