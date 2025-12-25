@@ -42,6 +42,16 @@ export class CampaignUtils {
 
             console.log("Increased Airline Reputation Successfully!");
         }
+
+        const isCargoReputationExists = await this.page.getByRole('cell', { name: ' Cargo reputation' }).isVisible();
+        if (!isCargoReputationExists) {
+            await this.page.getByRole('button', { name: ' New campaign' }).click();
+            await this.page.getByRole('cell', { name: 'Increase cargo reputation' }).click();
+            await this.page.locator('#dSelector').selectOption(durationOption);
+            await this.page.locator(`tr:has(td:has-text("Campaign ${campaignType}")) .btn-danger`).click();
+
+            console.log("Increased Cargo Reputation Successfully!");
+        }
     }
 
     public async createCampaign() {
